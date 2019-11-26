@@ -33,8 +33,7 @@ module "allin1website" {
 
 ### Start with Terraform
 
-```shell script
-
+```sh
 terraform init
 
 terraform plan
