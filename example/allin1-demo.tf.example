@@ -3,7 +3,7 @@
    Enjoy it ;)
 */
 module "allin1website" {
-  source            = ".."
+  source            = "zhouyuanzhen/allin1website/alicloud"
   alicloud_region   = "cn-hangzhou"
   alicloud_az       = "cn-hangzhou-i"
   alicloud_profile  = "alicloud-zhouyuanzhen"
