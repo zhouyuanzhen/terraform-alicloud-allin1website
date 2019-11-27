@@ -1,0 +1,30 @@
+#cloud-config
+
+bootcmd:
+  - "mkdir -p /etc/caddy/conf.d/"
+  - "mkdir -p /var/www/"
+
+runcmd:
+  - "yum -y install caddy"
+  - "systemctl start caddy"
+  - "systemctl enable caddy"
+
+write_files:
+  - path: /root/.ssh/authorized_keys
+    owner: root:root
+    permissions: '0600'
+    content: |
+      ${SSH_AUTH_KEYS}
+  - path: /var/www/index.html
+    owner: root:root
+    permissions: '0644'
+    content: |
+      ${INDEX_CONTENT}
+  - path: /etc/caddy/conf.d/demo.conf
+    owner: root:root
+    permissions: '0644'
+    content: |
+      http://0.0.0.0:80 {
+        gzip
+        root /var/www
+      }

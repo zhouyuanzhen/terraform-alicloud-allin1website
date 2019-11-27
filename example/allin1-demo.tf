@@ -1,0 +1,19 @@
+/*
+   This is a quick example for start with this terraform module
+   Enjoy it ;)
+*/
+module "allin1website" {
+  source            = ".."
+  alicloud_region   = "cn-hangzhou"
+  alicloud_az       = "cn-hangzhou-i"
+  alicloud_profile  = "alicloud-zhouyuanzhen"
+  ecs-type          = "ecs.t6-c4m1.large"
+  ecs-name          = "ecs_terrform_demo"
+  ecs-hostname      = "demo.exmaple.com"
+  ecs-disk-size     = 20
+  max-internet-bandwidth = 2
+  template_file     = "demo.cloud-config.yaml"
+  ssh_auth_keys     = "ssh-rsa REPLACE_ME_WITH_YOUR_SSH_PUBLIC_KEY user@host"
+  demo_domain_name  = "exmaple.com"
+  demo_html_content = "<h1>My Demo Website!</h1><br>Welcome 2019!"
+}
