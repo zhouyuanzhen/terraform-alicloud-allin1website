@@ -34,13 +34,37 @@ module "allin1website" {
 ### Start with Terraform
 
 ```sh
-terraform init
+$ terraform init
+Initializing modules...
+Downloading zhouyuanzhen/allin1website/alicloud 1.0.1 for allin1website...
+- allin1website in .terraform/modules/allin1website/zhouyuanzhen-terraform-alicloud-allin1website-5d78a5e
 
-terraform plan
+Initializing the backend...
 
-terraform apply
+Initializing provider plugins...
+- Checking for available provider plugins...
+- Downloading plugin for provider "template" (hashicorp/template) 2.1.2...
+- Downloading plugin for provider "alicloud" (hashicorp/alicloud) 1.62.2...
+
+* provider.alicloud: version = "~> 1.62"
+* provider.template: version = "~> 2.1"
+
+Terraform has been successfully initialized!
+
+$ terraform plan
+
+...
+Plan: 7 to add, 0 to change, 0 to destroy.
+
+$ terraform apply
+
+...
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
+
 ```
 
 ## Play with it
 
 When the `terraform apply` successfully executed, you can test it by open HTTP website.
+
+![Website example](website-example.png)
